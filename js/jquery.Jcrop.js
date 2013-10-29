@@ -984,9 +984,9 @@
         awake || show();
 
         if (select) {
-          options.onSelect.call(api, unscale(c));
+          options.onSelect.call(api, unscale(c), options.id);
         } else {
-          options.onChange.call(api, unscale(c));
+          options.onChange.call(api, unscale(c), options.id);
         }
       }
       //}}}
@@ -1170,7 +1170,7 @@
           onDone(mouseAbs(e));
 
           if (Selection.isAwake()) {
-            options.onSelect.call(api, unscale(Coords.getFixed()));
+            options.onSelect.call(api, unscale(Coords.getFixed()), options.id);
           }
 
           toBack();
@@ -1642,6 +1642,9 @@
   //}}}
   // Global Defaults {{{
   $.Jcrop.defaults = {
+
+	// Custom
+	id: 'a',
 
     // Basic Settings
     allowSelect: true,
